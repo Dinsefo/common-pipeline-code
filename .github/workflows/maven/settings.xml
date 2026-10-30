@@ -1,1 +1,101 @@
 
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd"
+          xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<localRepository/>
+	<interactiveMode/>
+	<offline/>
+	<pluginGroups/>
+	<!--
+        Server credentials for MuleSoft repositories.
+        These IDs must match the repository/pluginRepository IDs in the profiles below.
+    -->
+	<servers>
+		<server>
+			<id>anypoint-exchange-v3</id>
+			<username>~~~Client~~~</username>
+			<!-- <password>ab75c22ddf4a41568bcf0cd22dda92ad~?~CECb82c8356A47Ae89Eab27045BEf57F</password>  -->
+			<password>ad36c99a8f8744d896309dce90444c99~?~0b213Cd337144dd590f3228DbAC8FA82</password>
+		</server>
+	</servers>
+	<mirrors/>
+	<proxies/>
+	<!--
+                     MuleSoft repository profile.
+        Activating this profile makes the MuleSoft repositories available
+        to ALL Maven projects on this machine, including Maven extensions
+        like polyglot-exchange that are loaded before the pom.xml is read.
+    -->
+	<profiles>
+		<profile>
+			<id>mulesoft-repositories</id>
+			<repositories>
+				<!-- Anypoint Exchange v3 - for Exchange assets and Mule apps -->
+				<repository>
+					<id>anypoint-exchange-v3</id>
+					<name>Anypoint Exchange v3</name>
+					<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+				<!-- MuleSoft Public Releases - for connectors and modules -->
+				<repository>
+					<id>mulesoft-releases</id>
+					<name>MuleSoft Releases</name>
+					<url>https://repository.mulesoft.org/releases/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+				<!-- MuleSoft EE Releases - for EE-only artifacts -->
+				<repository>
+					<id>mulesoft-ee-releases</id>
+					<name>MuleSoft EE Releases</name>
+					<url>https://repository.mulesoft.org/nexus/content/repositories/releases-ee/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>mulesoft-releases</id>
+					<name>MuleSoft Releases</name>
+					<url>https://repository.mulesoft.org/releases/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+				<pluginRepository>
+					<id>anypoint-exchange-v3</id>
+					<name>Anypoint Exchange v3</name>
+					<url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+	<!-- Always activate the MuleSoft repositories profile -->
+	<activeProfiles>
+		<activeProfile>mulesoft-repositories</activeProfile>
+	</activeProfiles>
+</settings>
