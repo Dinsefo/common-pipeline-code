@@ -64,7 +64,7 @@ jobs:
           mvn clean deploy
           --settings common/.github/workflows/maven/settings.xml
           -DskipMunitTests
-          -Dbusiness.group.id="${{ vars.BUSINESS_GROUP_ID }}"
+          -Dbusiness.group.id="${{ secret.BUSINESS_GROUP_ID }}"
           -Dca_client_id: ${{ secrets.CA_EXCHANGE_CLIENT_ID }}
           -Dca_client_secret: ${{ secrets.CA_EXCHANGE_CLIENT_SECRET }}
 
