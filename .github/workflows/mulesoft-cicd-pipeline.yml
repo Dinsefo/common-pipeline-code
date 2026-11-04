@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: Checkout this repo
          # uses: actions/checkout@v4
-         uses: actions/checkout@v6
+        uses: actions/checkout@v6
 
       - name: Checkout common-pipeline (for maven/settings.xml)
         # uses: actions/checkout@v4
