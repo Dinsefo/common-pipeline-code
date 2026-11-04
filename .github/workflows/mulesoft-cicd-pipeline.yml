@@ -26,10 +26,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout this repo
-        uses: actions/checkout@v4
+         # uses: actions/checkout@v4
+         uses: actions/checkout@v6
 
       - name: Checkout common-pipeline (for maven/settings.xml)
-        uses: actions/checkout@v4
+        # uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ github.repository_owner }}/common-pipeline-code
           ref: ${{ inputs.common-ref }}
@@ -37,7 +39,8 @@ jobs:
           token: ${{ secrets.COMMON_REPO_TOKEN || github.token }}
 
       - name: Set up JDK
-        uses: actions/setup-java@v4
+        # uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: zulu
           java-version: ${{ inputs.java-version }}
@@ -48,7 +51,8 @@ jobs:
           mvn --version
           java -version
       - name: Set up Maven 3.9.9
-        uses: stCarolas/setup-maven@v5
+        # uses: stCarolas/setup-maven@v5.1
+        uses: stCarolas/setup-maven@v5.1
         with:
           maven-version: 3.9.9
       
@@ -84,10 +88,12 @@ jobs:
     environment: ${{ vars.ANYPOINT_ENVIRONMENT }}
     steps:
       - name: Checkout this repo
-        uses: actions/checkout@v4
+        # uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Checkout common-pipeline (for maven/settings.xml)
-        uses: actions/checkout@v4
+        # uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ github.repository_owner }}/common-pipeline-code
           ref: ${{ inputs.common-ref }}
@@ -95,7 +101,8 @@ jobs:
           token: ${{ secrets.COMMON_REPO_TOKEN || github.token }}
 
       - name: Set up JDK
-        uses: actions/setup-java@v4
+        # uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: zulu
           java-version: ${{ inputs.java-version }}
